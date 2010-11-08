@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<project name="MWowaLog" default="jar" basedir="..">
+<project name="MWowzaLog" default="jar" basedir="..">
 	
 	<property name="wowza.lib.dir" value="/Library/WowzaMediaServer-2.1.2/lib"/>
-	<property name="jar.filename" value="MWowaLog.jar"/>
+	<property name="jar.filename" value="MWowzaLog.jar"/>
 	<property name="core.build.dir" value="bin"/>
 
 	<target name="jar">
