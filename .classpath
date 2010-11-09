@@ -71,11 +71,6 @@
 			<attribute name="javadoc_location" value="file:/Library/WowzaMediaServer/documentation/serverapi"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/wms-plugin-collection.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Library/WowzaMediaServer/documentation/serverapi"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/wms-plugin-textchat.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/Library/WowzaMediaServer/documentation/serverapi"/>
