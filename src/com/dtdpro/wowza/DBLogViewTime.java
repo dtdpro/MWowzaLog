@@ -1,3 +1,9 @@
+/*
+ *  MWowzaLog - DBLogViewTime.java
+ *  (C)2010 DtD Productions
+ *  License: GPL v2
+ *  mike@dtdpro.com
+ */
 package com.dtdpro.wowza;
 
 import com.wowza.wms.amf.AMFDataList;
