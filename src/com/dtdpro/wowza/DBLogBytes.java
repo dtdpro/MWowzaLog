@@ -23,6 +23,7 @@ public class DBLogBytes extends ModuleBase {
 	private String dbHost=null;
 	private String dbUser=null;
 	private String dbPass=null;
+	private String tblPre=null;
 	private String appName="";
 
 	private void logBytes(String strmtype,long strmbytes,String strmname,int strmet,String strmapp) {
@@ -35,7 +36,7 @@ public class DBLogBytes extends ModuleBase {
  
 			try 
 			{
-				stmt = conn.prepareStatement("INSERT INTO wza_bytes (byt_type,byt_bytes,byt_name,byt_seconds,byt_app) VALUES (?,?,?,?,?)");
+				stmt = conn.prepareStatement("INSERT INTO "+tblPre+"bytes (byt_type,byt_bytes,byt_name,byt_seconds,byt_app) VALUES (?,?,?,?,?)");
 				stmt.setString(1, strmtype);
 				stmt.setLong(2,strmbytes);
 				stmt.setString(3,strmname);
@@ -68,6 +69,7 @@ public class DBLogBytes extends ModuleBase {
 		dbHost=appInstance.getProperties().getPropertyStr("dbhost");
 		dbUser=appInstance.getProperties().getPropertyStr("dbuser");
 		dbPass=appInstance.getProperties().getPropertyStr("dbpass");
+		tblPre=appInstance.getProperties().getPropertyStr("tblpre");
 		appName=appInstance.getApplication().getName();
 		
 		try 
@@ -82,11 +84,11 @@ public class DBLogBytes extends ModuleBase {
 
 	public void onStreamDestroy(IMediaStream stream) {
 		IOPerformanceCounter perf = stream.getMediaIOPerformance();
-		String streamType=stream.getStreamType();
 		long bytes = perf.getMessagesOutBytes() - perf.getMessagesInBytes();
+		String streamType=stream.getStreamType();
 		String streamName=stream.getName();
 		int elapsedTime = (int) stream.getElapsedTime().getTimeSeconds();
-		logBytes(streamType,bytes,streamName,elapsedTime,appName);
+		if (bytes != 0) logBytes(streamType,bytes,streamName,elapsedTime,appName);
 	}
  
 	

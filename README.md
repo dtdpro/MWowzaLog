@@ -4,10 +4,11 @@ Licensed under GPl v2
 
 Add these lines to Application.xml under Properties:
 
-<code>
+For DBLogBytes & DBLogViewTime:
+
 <Property>
 	<Name>dbhost</Name>
-	<Value>xx</Value>
+	<Value>xxx</Value>
 </Property>
 <Property>
 	<Name>dbuser</Name>
@@ -21,4 +22,30 @@ Add these lines to Application.xml under Properties:
 	<Name>dbname</Name>
 	<Value>xxx</Value>
 </Property>
-</code>
+<Property>
+	<Name>tblpre</Name>
+	<Value>xxx</Value>
+</Property>
+
+For Joomla Checks:
+
+<Property>
+	<Name>auth_dbhost</Name>
+	<Value>xxx</Value>
+</Property>
+<Property>
+	<Name>auth_dbuser</Name>
+	<Value>xxx</Value>
+</Property>
+<Property>
+	<Name>auth_dbpass</Name>
+	<Value>xxx</Value>
+</Property>
+<Property>
+	<Name>auth_dbname</Name>
+	<Value>xxx</Value>
+</Property>
+<Property>
+	<Name>auth_tblpre</Name>
+	<Value>xxx</Value>
+</Property>
