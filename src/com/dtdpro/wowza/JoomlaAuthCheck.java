@@ -112,7 +112,11 @@ public class JoomlaAuthCheck extends ModuleBase {
 				client.rejectConnection("DatabaseError");
 			}
 		} else {
-			client.rejectConnection("GuestNotLoggedIn");
+			if (playType.equals("public")) {
+		    	client.acceptConnection();
+			} else {
+				client.rejectConnection("GuestNotLoggedIn");
+			}
 		}
 		getLogger().info("onConnect: " + client.getClientId());
 	}

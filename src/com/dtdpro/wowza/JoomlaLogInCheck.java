@@ -41,6 +41,9 @@ public class JoomlaLogInCheck extends ModuleBase {
 	public void onConnect(IClient client, RequestFunction function, AMFDataList params) {
 		String userId = getParamString(params, PARAM1,"0");
 		String sessId = getParamString(params, PARAM2,"NoSessionProvided");
+		String vidId = getParamString(params, PARAM3,"0");
+		String playType = getParamString(params, PARAM4,"none");
+		
 		if (!userId.equals("0")) {
 			Connection conn = null;
 			
@@ -90,7 +93,11 @@ public class JoomlaLogInCheck extends ModuleBase {
 				client.rejectConnection("DatabaseError");
 			}
 		} else {
-			client.rejectConnection("GuestNotLoggedIn");
+			if (playType.equals("public")) {
+		    	client.acceptConnection();
+			} else {
+				client.rejectConnection("GuestNotLoggedIn");
+			}
 		}
 		getLogger().info("onConnect: " + client.getClientId());
 	}
