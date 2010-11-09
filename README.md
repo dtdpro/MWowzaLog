@@ -4,6 +4,7 @@ Licensed under GPl v2
 
 Add these lines to Application.xml under Properties:
 
+<code>
 <Property>
 	<Name>dbhost</Name>
 	<Value>xx</Value>
@@ -20,3 +21,4 @@ Add these lines to Application.xml under Properties:
 	<Name>dbname</Name>
 	<Value>xxx</Value>
 </Property>
+</code>
