@@ -10,6 +10,7 @@ import com.wowza.util.IOPerformanceCounter;
 import com.wowza.wms.amf.AMFDataList;
 import com.wowza.wms.application.*;
 import com.wowza.wms.client.IClient;
+import com.wowza.wms.httpstreamer.cupertinostreaming.httpstreamer.HTTPStreamerSessionCupertino;
 import com.wowza.wms.module.*;
 import com.wowza.wms.request.RequestFunction;
 import com.wowza.wms.stream.IMediaStream;
@@ -17,6 +18,8 @@ import com.wowza.wms.stream.IMediaStream;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DBLogViewTime extends ModuleBase {
 	
@@ -53,6 +56,27 @@ public class DBLogViewTime extends ModuleBase {
 		userId = getParamString(params, PARAM1,"0");
 		sessId = getParamString(params, PARAM2,"noFlash");
 	}
+	
+	public void onHTTPCupertinoStreamingSessionCreate(HTTPStreamerSessionCupertino cupertinoSession) {
+        String queryStr = cupertinoSession.getQueryStr();
+        Map<String, String> queryMap = getQueryMap(queryStr);
+        userId = queryMap.get("userId");
+        sessId = queryMap.get("sessId");
+        cupertinoSession.acceptSession();
+        
+    }
+
+	private Map<String, String> getQueryMap(String query) {
+        String[] params = query.split("&");
+        Map<String, String> map = new HashMap<String, String>();
+        for (String param : params)  {
+            String name = param.split("=")[0];
+            String value = param.split("=")[1];
+            map.put(name, value);
+        }
+        return map;
+    }
+	
 	public void onStreamCreate(IMediaStream stream) {
 		startTime=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 

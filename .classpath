@@ -2,10 +2,10 @@
 <classpath>
 	<classpathentry kind="src" output="bin" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/bcprov-ext-jdk15-143.jar"/>
-	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/Library/WowzaMediaServer-2.2.0/lib/bcprov-ext-jdk15-145.jar"/>
+	<classpathentry kind="lib" path="/Library/WowzaMediaServer-2.2.0/lib/commons-lang-2.5.jar"/>
 	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/jid3lib-0.5.4.jar"/>
-	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/Library/WowzaMediaServer-2.2.0/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="lib" path="/Library/WowzaMediaServer/lib/wms-ant.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/Library/WowzaMediaServer/documentation/serverapi"/>
